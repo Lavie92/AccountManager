@@ -1,14 +1,11 @@
 ﻿namespace AccountManager
 {
-    public partial class Form1 : Form
+    public partial class FAccountManager : Form
     {
         float total = 0;
-        public Form1()
+        public FAccountManager()
         {
             InitializeComponent();
-        }
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
 
         private void btnAddUpdate_Click(object sender, EventArgs e)
@@ -19,23 +16,7 @@
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!!");
             }
             else if (lvwInformation.FindItemWithText(txtAccountNumber.Text) != null) {
-                //if (lvwInformation.SelectedItems.Count > 0)
-                //{
-                //    // here your code goes
-                //    lvwInformation.SelectedItems[0].SubItems[0].Text = txtCustomerName.Text;
-                //    lvwInformation.SelectedItems[0].SubItems[1].Text = txtCustomerName.Text;
-                //    lvwInformation.SelectedItems[0].SubItems[2].Text = txtCustomerName.Text;
-                //    lvwInformation.SelectedItems[0].SubItems[3].Text = txtCustomerName.Text;
-                //    lvwInformation.SelectedItems[0].SubItems[4].Text = txtCustomerName.Text;
-                //    lvwInformation.SelectedItems[0].SubItems[5].Text = txtCustomerName.Text;
-                //    
-                //}
-                //else
-                //{
-                //    return;
-                //}
                 MessageBox.Show("Tài khoản đã tồn tại!!");
-                return;
             }
             else 
             {
@@ -57,6 +38,18 @@
             txtTotal.Text = total.ToString();
         }
 
+        private void UpdateAccount()
+        {
+
+            // here your code goes
+            lvwInformation.SelectedItems[0].SubItems[0].Text = txtCustomerName.Text;
+            lvwInformation.SelectedItems[0].SubItems[1].Text = txtCustomerName.Text;
+            lvwInformation.SelectedItems[0].SubItems[2].Text = txtCustomerName.Text;
+            lvwInformation.SelectedItems[0].SubItems[3].Text = txtCustomerName.Text;
+            lvwInformation.SelectedItems[0].SubItems[4].Text = txtCustomerName.Text;
+            lvwInformation.SelectedItems[0].SubItems[5].Text = txtCustomerName.Text;
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (lvwInformation.SelectedItems.Count > 0)
@@ -64,6 +57,31 @@
                 MessageBox.Show("Bạn chắc chứ?", "", MessageBoxButtons.OKCancel);
                 lvwInformation.Items.Remove(lvwInformation.SelectedItems[0]);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sủe about that", "", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            else
+            {
+                Close();
+            }
+        }
+
+        private void lvwInformation_Click(object sender, EventArgs e)
+        {
+            string accountNumber = lvwInformation.SelectedItems[0].SubItems[0].Text;
+            txtAccountNumber.Text = accountNumber;
+            string customerName = lvwInformation.SelectedItems[0].SubItems[1].Text;
+            txtCustomerName.Text = customerName;
+            string customerAddress = lvwInformation.SelectedItems[0].SubItems[2].Text;
+            txtAddress.Text = customerAddress;
+            string remainder = lvwInformation.SelectedItems[0].SubItems[3].Text;
+            txtRemainder.Text = remainder;
         }
     }
 }

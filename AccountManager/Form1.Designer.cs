@@ -1,6 +1,6 @@
 ﻿namespace AccountManager
 {
-    partial class Form1
+    partial class FAccountManager
     {
         /// <summary>
         ///  Required designer variable.
@@ -185,14 +185,16 @@
             this.colCustomerName,
             this.colAddress,
             this.colRemainder});
+            this.lvwInformation.FullRowSelect = true;
             this.lvwInformation.HoverSelection = true;
-            this.lvwInformation.Location = new System.Drawing.Point(12, 355);
+            this.lvwInformation.Location = new System.Drawing.Point(15, 350);
+            this.lvwInformation.MultiSelect = false;
             this.lvwInformation.Name = "lvwInformation";
             this.lvwInformation.Size = new System.Drawing.Size(732, 198);
             this.lvwInformation.TabIndex = 2;
             this.lvwInformation.UseCompatibleStateImageBehavior = false;
             this.lvwInformation.View = System.Windows.Forms.View.Details;
-            this.lvwInformation.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.lvwInformation.Click += new System.EventHandler(this.lvwInformation_Click);
             // 
             // colNumber
             // 
@@ -230,12 +232,13 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(592, 290);
+            this.btnCancel.Location = new System.Drawing.Point(546, 290);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(81, 29);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDelete
             // 
@@ -263,7 +266,7 @@
             this.txtTotal.Size = new System.Drawing.Size(157, 23);
             this.txtTotal.TabIndex = 5;
             // 
-            // Form1
+            // FAccountManager
             // 
             this.AcceptButton = this.btnAddUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -279,9 +282,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.Name = "FAccountManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "AccountManager";
             this.tblTitle.ResumeLayout(false);
             this.tblTitle.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
