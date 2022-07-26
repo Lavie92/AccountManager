@@ -186,7 +186,7 @@
             this.colAddress,
             this.colRemainder});
             this.lvwInformation.HoverSelection = true;
-            this.lvwInformation.Location = new System.Drawing.Point(15, 351);
+            this.lvwInformation.Location = new System.Drawing.Point(12, 355);
             this.lvwInformation.Name = "lvwInformation";
             this.lvwInformation.Size = new System.Drawing.Size(732, 198);
             this.lvwInformation.TabIndex = 2;

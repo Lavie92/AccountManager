@@ -2,14 +2,13 @@
 {
     public partial class Form1 : Form
     {
+        float total = 0;
         public Form1()
         {
             InitializeComponent();
         }
-
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnAddUpdate_Click(object sender, EventArgs e)
@@ -50,10 +49,12 @@
                 item.SubItems.Add(subItem);
                 subItem = new ListViewItem.ListViewSubItem(item, (txtRemainder.Text));
                 item.SubItems.Add(subItem);
+                total += float.Parse(txtRemainder.Text);
                 MessageBox.Show("Thêm tài khoản thành công!!");
                 txtAccountNumber.Text = null; txtRemainder.Text = null;
                 txtAddress.Text = null; txtCustomerName.Text = null;
             }
+            txtTotal.Text = total.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
