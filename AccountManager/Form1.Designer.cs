@@ -185,6 +185,7 @@
             this.colCustomerName,
             this.colAddress,
             this.colRemainder});
+            this.lvwInformation.HoverSelection = true;
             this.lvwInformation.Location = new System.Drawing.Point(15, 351);
             this.lvwInformation.Name = "lvwInformation";
             this.lvwInformation.Size = new System.Drawing.Size(732, 198);
@@ -244,6 +245,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Xoá";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblTotal
             // 
