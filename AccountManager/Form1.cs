@@ -14,17 +14,16 @@
 
         private void btnAddUpdate_Click(object sender, EventArgs e)
         {
+            ListViewItem item = new ListViewItem();
             if (string.IsNullOrEmpty(txtAccountNumber.Text) || string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtRemainder.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!!");
             }
-            else
+            else if (lvwInformation.FindItemWithText(txtAccountNumber.Text) != null) {
+                MessageBox.Show("Có rồi");
+            }
             {
-                ListViewItem item = new ListViewItem();
-                for (int i = 1; i < lvwInformation.Items.Count + 2; i++)
-                {
-                    item.Text = i.ToString();
-                }
+                item.Text = (lvwInformation.Items.Count + 1).ToString();
                 lvwInformation.Items.Add(item);
                 ListViewItem.ListViewSubItem subItem = new ListViewItem.ListViewSubItem(item, (txtAccountNumber.Text));
                 item.SubItems.Add(subItem);

@@ -48,6 +48,8 @@
             this.btnAddUpdate = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.tblTitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -243,12 +245,31 @@
             this.btnDelete.Text = "Xoá";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(453, 572);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(57, 15);
+            this.lblTotal.TabIndex = 4;
+            this.lblTotal.Text = "Tổng tiền";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(516, 569);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(157, 23);
+            this.txtTotal.TabIndex = 5;
+            // 
             // Form1
             // 
+            this.AcceptButton = this.btnAddUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(821, 606);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddUpdate);
@@ -264,6 +285,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -289,5 +311,7 @@
         private Button btnAddUpdate;
         private Button btnCancel;
         private Button btnDelete;
+        private Label lblTotal;
+        private TextBox txtTotal;
     }
 }
