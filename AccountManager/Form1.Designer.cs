@@ -226,7 +226,7 @@
             this.btnAddUpdate.Name = "btnAddUpdate";
             this.btnAddUpdate.Size = new System.Drawing.Size(119, 29);
             this.btnAddUpdate.TabIndex = 3;
-            this.btnAddUpdate.Text = "Thêm / Cập nhật";
+            this.btnAddUpdate.Text = "Thêm";
             this.btnAddUpdate.UseVisualStyleBackColor = true;
             this.btnAddUpdate.Click += new System.EventHandler(this.btnAddUpdate_Click);
             // 

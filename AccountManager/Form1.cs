@@ -8,35 +8,6 @@
             InitializeComponent();
         }
 
-        private void btnAddUpdate_Click(object sender, EventArgs e)
-        {
-            ListViewItem item = new ListViewItem();
-            if (string.IsNullOrEmpty(txtAccountNumber.Text) || string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtRemainder.Text))
-            {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!!");
-            }
-            else if (lvwInformation.FindItemWithText(txtAccountNumber.Text) != null) {
-                MessageBox.Show("Tài khoản đã tồn tại!!");
-            }
-            else 
-            {
-                item.Text = (lvwInformation.Items.Count + 1).ToString();
-                lvwInformation.Items.Add(item);
-                ListViewItem.ListViewSubItem subItem = new ListViewItem.ListViewSubItem(item, (txtAccountNumber.Text));
-                item.SubItems.Add(subItem);
-                subItem = new ListViewItem.ListViewSubItem(item, (txtCustomerName.Text));
-                item.SubItems.Add(subItem);
-                subItem = new ListViewItem.ListViewSubItem(item, (txtAddress.Text));
-                item.SubItems.Add(subItem);
-                subItem = new ListViewItem.ListViewSubItem(item, (txtRemainder.Text));
-                item.SubItems.Add(subItem);
-                total += float.Parse(txtRemainder.Text);
-                MessageBox.Show("Thêm tài khoản thành công!!");
-                txtAccountNumber.Text = null; txtRemainder.Text = null;
-                txtAddress.Text = null; txtCustomerName.Text = null;
-            }
-            txtTotal.Text = total.ToString();
-        }
 
         private void UpdateAccount()
         {
@@ -54,8 +25,15 @@
         {
             if (lvwInformation.SelectedItems.Count > 0)
             {
-                MessageBox.Show("Bạn chắc chứ?", "", MessageBoxButtons.OKCancel);
-                lvwInformation.Items.Remove(lvwInformation.SelectedItems[0]);
+                DialogResult result = MessageBox.Show("Are you sủe?", "", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    lvwInformation.Items.Remove(lvwInformation.SelectedItems[0]);
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
@@ -74,14 +52,45 @@
 
         private void lvwInformation_Click(object sender, EventArgs e)
         {
-            string accountNumber = lvwInformation.SelectedItems[0].SubItems[0].Text;
+            string accountNumber = lvwInformation.SelectedItems[0].SubItems[1].Text;
             txtAccountNumber.Text = accountNumber;
-            string customerName = lvwInformation.SelectedItems[0].SubItems[1].Text;
+            string customerName = lvwInformation.SelectedItems[0].SubItems[2].Text;
             txtCustomerName.Text = customerName;
-            string customerAddress = lvwInformation.SelectedItems[0].SubItems[2].Text;
+            string customerAddress = lvwInformation.SelectedItems[0].SubItems[3].Text;
             txtAddress.Text = customerAddress;
-            string remainder = lvwInformation.SelectedItems[0].SubItems[3].Text;
+            string remainder = lvwInformation.SelectedItems[0].SubItems[4].Text;
             txtRemainder.Text = remainder;
+        }
+        private void btnAddUpdate_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = new ListViewItem();
+            if (string.IsNullOrEmpty(txtAccountNumber.Text) || string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtRemainder.Text))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!!");
+            }
+            
+             else if (lvwInformation.FindItemWithText(txtAccountNumber.Text) != null)
+                {
+                MessageBox.Show("Tài khoản đã tồn tại!!");
+            }
+            else
+            {
+                item.Text = (lvwInformation.Items.Count + 1).ToString();
+                lvwInformation.Items.Add(item);
+                ListViewItem.ListViewSubItem subItem = new ListViewItem.ListViewSubItem(item, (txtAccountNumber.Text));
+                item.SubItems.Add(subItem);
+                subItem = new ListViewItem.ListViewSubItem(item, (txtCustomerName.Text));
+                item.SubItems.Add(subItem);
+                subItem = new ListViewItem.ListViewSubItem(item, (txtAddress.Text));
+                item.SubItems.Add(subItem);
+                subItem = new ListViewItem.ListViewSubItem(item, (txtRemainder.Text));
+                item.SubItems.Add(subItem);
+                total += float.Parse(txtRemainder.Text);
+                MessageBox.Show("Thêm tài khoản thành công!!");
+                txtAccountNumber.Text = null; txtRemainder.Text = null;
+                txtAddress.Text = null; txtCustomerName.Text = null;
+            }
+            txtTotal.Text = total.ToString();
         }
     }
 }
